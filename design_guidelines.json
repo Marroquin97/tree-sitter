@@ -1,0 +1,110 @@
+{
+  "brand_identity": {
+    "name": "ATARAXIA TECH LAB",
+    "tagline": "Engineering Experiences",
+    "mission": "Unifying technical precision with human sensory experience.",
+    "emotional_tone": "Industrial Luxury, Precision, Alchemical, Executive",
+    "archetype": "The Alchemist (Tech + Magic)",
+    "keywords": ["Precision", "Gold", "Dark", "Systems", "Sensory"]
+  },
+  "design_system": {
+    "theme": "dark",
+    "colors": {
+      "background": {
+        "primary": "#050505",
+        "secondary": "#0A0A0A",
+        "tertiary": "#121212"
+      },
+      "text": {
+        "primary": "#EDEDED",
+        "secondary": "#A1A1AA",
+        "muted": "#52525B"
+      },
+      "accent": {
+        "gold": "#D4AF37",
+        "gold_dim": "#8F7218",
+        "gold_light": "#FCD34D",
+        "blue_tech": "#3B82F6",
+        "red_alert": "#EF4444"
+      },
+      "border": {
+        "subtle": "rgba(255, 255, 255, 0.08)",
+        "gold": "rgba(212, 175, 55, 0.3)"
+      }
+    },
+    "typography": {
+      "headings": {
+        "family": "Syne, sans-serif",
+        "weights": ["700", "800"],
+        "usage": "Hero titles, Section headers. Use 'Syne' from Google Fonts."
+      },
+      "body": {
+        "family": "Outfit, sans-serif",
+        "weights": ["300", "400", "500"],
+        "usage": "Paragraphs, UI elements, Labels. Use 'Outfit' from Google Fonts."
+      },
+      "mono": {
+        "family": "JetBrains Mono, monospace",
+        "usage": "Code snippets, Technical specs, Coordinates"
+      }
+    },
+    "spacing": {
+      "container_padding": "p-6 md:p-12 lg:p-24",
+      "section_gap": "gap-24 md:gap-32",
+      "element_gap": "gap-6"
+    },
+    "effects": {
+      "glass": "backdrop-blur-xl bg-black/40 border border-white/5",
+      "gold_glow": "shadow-[0_0_30px_rgba(212,175,55,0.15)]",
+      "tech_glow": "shadow-[0_0_20px_rgba(59,130,246,0.2)]"
+    }
+  },
+  "layout_strategies": {
+    "hero": {
+      "type": "asymmetric_split",
+      "description": "Left: Massive Typography (Syne ExtraBold). Right: Abstract 3D/Video element. Bottom: Scrolling marquee of services."
+    },
+    "divisions_section": {
+      "type": "the_triptych",
+      "description": "Three vertical columns (Systems, Experience, Academy). Default: Equal width. Hover: Expands to 60% width while others shrink. Each column has a distinct background image with overlay."
+    },
+    "bento_grid": {
+      "type": "mode_a_tetris",
+      "description": "Use for Portfolio/Case Studies. Mix of 1x1, 2x1, and 2x2 cells. High gap (gap-6)."
+    }
+  },
+  "assets": {
+    "images": {
+      "hero_bg": "https://images.unsplash.com/photo-1724770388815-0e0a9654ec66?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHx0ZWNobm9sb2d5JTIwZ29sZCUyMGNpcmN1aXR8ZW58MHx8fHwxNzcyOTY3MTY1fDA&ixlib=rb-4.1.0&q=85",
+      "systems": "https://images.unsplash.com/photo-1724770388447-30b015a5cbb6?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwxfHx0ZWNobm9sb2d5JTIwZ29sZCUyMGNpcmN1aXR8ZW58MHx8fHwxNzcyOTY3MTY1fDA&ixlib=rb-4.1.0&q=85",
+      "experience": "https://images.unsplash.com/photo-1569402766266-9c58bfe2f4ed?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NzN8MHwxfHNlYXJjaHwyfHxtb2xlY3VsYXIlMjBjb2NrdGFpbCUyMHNtb2tlJTIwbHV4dXJ5JTIwYmFyJTIwZGFyayUyMGJhY2tncm91bmR8ZW58MHx8fHwxNzcyOTY3MTUxfDA&ixlib=rb-4.1.0&q=85",
+      "academy": "https://images.pexels.com/photos/8369249/pexels-photo-8369249.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "founder": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80",
+      "texture_noise": "url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48ZmlsdGVyIGlkPSJub2lzZSI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuNjUiIG51bU9jdGF2ZXM9IjMiIHN0aXRjaFRpbGVzPSJzdGl0Y2giLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWx0ZXI9InVybCgjbm9pc2UpIiBvcGFjaXR5PSIwLjA1Ii8+PC9zdmc+')",
+      "placeholder_logo": "https://placehold.co/200x80/000000/D4AF37?text=ATARAXIA"
+    },
+    "icons": {
+      "library": "lucide-react",
+      "preferred": ["Cpu", "FlaskConical", "GraduationCap", "Menu", "X", "ArrowRight", "ChevronDown", "Hexagon"]
+    }
+  },
+  "tech_requirements": {
+    "required_packages": [
+      "framer-motion",
+      "lenis",
+      "clsx",
+      "tailwind-merge",
+      "lucide-react"
+    ],
+    "setup_instructions": "Install framer-motion and @studio-freight/lenis immediately. Configure Tailwind to use the custom colors and fonts."
+  },
+  "universal_guidelines": [
+    "Do not use gradients for main backgrounds, use solid dark colors with noise texture.",
+    "Use 'Syne' font for all headings. Import from Google Fonts.",
+    "Use 'Outfit' font for all body text.",
+    "Ensure all interactive elements have a hover state (text color change or scale).",
+    "Use the 'Gold' accent sparingly - only for key borders, active states, or primary buttons.",
+    "Implement smooth scrolling using Lenis.",
+    "Mobile First: Stack columns vertically on mobile, triptych on desktop."
+  ]
+}
