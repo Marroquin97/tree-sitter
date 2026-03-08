@@ -37,42 +37,94 @@ import { Toaster, toast } from "sonner";
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
-// Logo URL
-const LOGO_URL = "https://customer-assets.emergentagent.com/job_personal-brand-hub-11/artifacts/urh7x0j7_file_000000007034722fb8d8add7522442ce.png";
+// Brian's Real Images
+const BRIAN_IMAGES = {
+  // About section - Brian working
+  profile: "https://customer-assets.emergentagent.com/job_personal-brand-hub-11/artifacts/y6s5zi7i_FB_IMG_1756844718511.jpg",
+  action: "https://customer-assets.emergentagent.com/job_personal-brand-hub-11/artifacts/liudhhpr_FB_IMG_1772989023614.jpg",
+  // Concurso Tonatzin
+  tonatzin_group: "https://customer-assets.emergentagent.com/job_personal-brand-hub-11/artifacts/yud6zenz_FB_IMG_1772989019719.jpg",
+  // Ambiente
+  speakeasy_decor: "https://customer-assets.emergentagent.com/job_personal-brand-hub-11/artifacts/mmjeeufp_FB_IMG_1772989040348.jpg"
+};
 
-// Brian's Real Cocktail Creations
-const COCKTAIL_GALLERY = [
+// Cócteles de Autor - Concurso Tonatzin
+const COCKTAILS_AUTOR = [
   {
     id: 1,
-    name: "Blue Lagoon Tropical",
+    name: "Jardín Esmeralda",
+    image: "https://customer-assets.emergentagent.com/job_personal-brand-hub-11/artifacts/up6mt1n1_arlettecuellar7-20260308-0002.jpg",
+    description: "Cóctel de autor con flores comestibles y cítricos deshidratados",
+    event: "Concurso Tonatzin"
+  },
+  {
+    id: 2,
+    name: "Bosque Encantado",
+    image: "https://customer-assets.emergentagent.com/job_personal-brand-hub-11/artifacts/lzvgr86y_arlettecuellar7-20260308-0001.jpg",
+    description: "Presentación con técnica de pinzas y decoración floral",
+    event: "Concurso Tonatzin"
+  },
+  {
+    id: 3,
+    name: "Atardecer en Capas",
+    image: "https://customer-assets.emergentagent.com/job_personal-brand-hub-11/artifacts/b36ywsto_brian_marroquin7-20260308-0003.jpg",
+    description: "Shot de técnica de capas con efecto visual degradado",
+    event: "Concurso Tonatzin"
+  }
+];
+
+// Cócteles del Curso 2020 - Cielo y Pecados con Mane Maldonado
+const COCKTAILS_CURSO = [
+  {
+    id: 1,
+    name: "Blue Lagoon",
     image: "https://customer-assets.emergentagent.com/job_personal-brand-hub-11/artifacts/g4q9e4l8_IMG-20210907-WA0018.jpg",
-    description: "Cóctel azul con hoja de piña y cereza maraschino"
+    description: "Curso de Mixología 2020 - Speakeasy Cielo y Pecados, Morelia"
   },
   {
     id: 2,
     name: "Lava Frozen",
     image: "https://customer-assets.emergentagent.com/job_personal-brand-hub-11/artifacts/za3mqo85_IMG-20210811-WA0000.jpg",
-    description: "Frozen bicolor con frutas deshidratadas"
+    description: "Instructor: Mane Maldonado - Colegio de Bartenders"
   },
   {
     id: 3,
     name: "Rainbow Paradise",
     image: "https://customer-assets.emergentagent.com/job_personal-brand-hub-11/artifacts/eqd40mmw_IMG-20210804-WA0021.jpg",
-    description: "Cóctel degradado multicolor con fresa fresca"
+    description: "Técnicas de degradado y presentación"
   },
   {
     id: 4,
     name: "Blue Ocean",
     image: "https://customer-assets.emergentagent.com/job_personal-brand-hub-11/artifacts/pcaehv75_IMG-20210804-WA0002.jpg",
-    description: "Cóctel azul intenso con cerezas maraschino"
+    description: "Decoración con frutas y cristalería"
   },
   {
     id: 5,
     name: "Golden Sunset",
     image: "https://customer-assets.emergentagent.com/job_personal-brand-hub-11/artifacts/vh8aqetv_IMG-20210727-WA0002.jpg",
-    description: "Cóctel cítrico con uva y decoración artesanal"
+    description: "Técnica de capas y garnish"
   }
 ];
+
+// Platillos de Gastronomía - Club de Cuisine 2018
+const GASTRONOMY_IMAGES = [
+  {
+    id: 1,
+    name: "Plato de Autor",
+    image: "https://customer-assets.emergentagent.com/job_personal-brand-hub-11/artifacts/lvormepl_brian_marroquin7-20260308-0001.jpg",
+    description: "Club de Cuisine - Tacámbaro de Codallos, 2018"
+  },
+  {
+    id: 2,
+    name: "Técnica Culinaria",
+    image: "https://customer-assets.emergentagent.com/job_personal-brand-hub-11/artifacts/dazkdr0c_brian_marroquin7-20260308-0002.jpg",
+    description: "Estudios de Gastronomía"
+  }
+];
+
+// Logo URL
+const LOGO_URL = "https://customer-assets.emergentagent.com/job_personal-brand-hub-11/artifacts/urh7x0j7_file_000000007034722fb8d8add7522442ce.png";
 
 // Assets from design guidelines
 const ASSETS = {
@@ -297,157 +349,168 @@ const HeroSection = () => {
     "DISEÑO",
     "CAPACITACIÓN",
     "BRANDING",
-    "EXPERIENCIAS"
+    "GASTRONOMÍA"
   ];
 
   return (
     <section 
       ref={containerRef}
       id="inicio" 
-      className="hero-section relative noise-overlay"
+      className="hero-section relative overflow-hidden"
       data-testid="hero-section"
     >
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src={ASSETS.hero_bg}
-          alt="Hero Background"
-          className="w-full h-full object-cover opacity-30"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-transparent to-[#050505]" />
+      {/* Logo as Large Background */}
+      <div className="absolute inset-0 z-0 flex items-center justify-center">
+        <motion.div
+          className="relative w-full h-full flex items-center justify-center"
+          animate={{
+            scale: [1, 1.02, 1],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        >
+          {/* Glow behind logo */}
+          <motion.div
+            className="absolute w-[800px] h-[800px] bg-gold/5 rounded-full blur-3xl"
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.5, 0.3],
+            }}
+            transition={{ duration: 6, repeat: Infinity }}
+          />
+          
+          {/* Large Logo */}
+          <motion.img
+            src={LOGO_URL}
+            alt="ATARAXIA - El Loco Sabio"
+            className="w-[500px] h-[500px] md:w-[700px] md:h-[700px] lg:w-[800px] lg:h-[800px] object-contain opacity-15 md:opacity-20"
+            animate={{
+              y: [0, -20, 0],
+            }}
+            transition={{
+              duration: 6,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+          
+          {/* Magic circles around logo */}
+          <motion.div
+            className="absolute w-[600px] h-[600px] md:w-[850px] md:h-[850px] border border-gold/10 rounded-full"
+            animate={{ rotate: 360 }}
+            transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+          />
+          <motion.div
+            className="absolute w-[700px] h-[700px] md:w-[950px] md:h-[950px] border border-gold/5 rounded-full"
+            animate={{ rotate: -360 }}
+            transition={{ duration: 80, repeat: Infinity, ease: "linear" }}
+          />
+        </motion.div>
       </div>
+
+      {/* Noise overlay */}
+      <div className="absolute inset-0 z-[1] noise-overlay pointer-events-none" />
 
       <motion.div 
         style={{ y, opacity }}
         className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-32 pb-20"
       >
-        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[70vh]">
-          {/* Left Content */}
-          <div className="space-y-8">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <span className="font-mono text-xs tracking-[0.3em] text-gold uppercase">
-                Laboratorio Creativo-Técnico
-              </span>
-            </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="font-syne text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.1]"
-            >
-              <span className="gradient-text">ATARAXIA</span>
-              <br />
-              <span className="text-[#EDEDED]">TECH LAB</span>
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="font-outfit text-lg md:text-xl text-[#A1A1AA] max-w-lg leading-relaxed"
-            >
-              Diseñamos sistemas y experiencias que elevan el desempeño técnico y humano.
-              <span className="text-gold"> Precision. Experience. Evolution.</span>
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex flex-wrap gap-4"
-            >
-              <Button 
-                className="btn-gold px-8 py-6 text-base font-outfit font-medium flex items-center gap-2"
-                onClick={() => document.getElementById('contacto').scrollIntoView({ behavior: 'smooth' })}
-                data-testid="hero-cta-btn"
-              >
-                Iniciar Proyecto
-                <ArrowRight size={18} />
-              </Button>
-              <Button 
-                variant="outline"
-                className="btn-outline-gold px-8 py-6 text-base font-outfit"
-                onClick={() => document.getElementById('divisiones').scrollIntoView({ behavior: 'smooth' })}
-                data-testid="hero-explore-btn"
-              >
-                Explorar Servicios
-              </Button>
-            </motion.div>
-          </div>
-
-          {/* Right Content - Animated Logo */}
+        <div className="flex flex-col items-center justify-center min-h-[70vh] text-center">
+          {/* Small Logo for Mobile */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.4 }}
-            className="hidden lg:flex justify-center items-center"
+            transition={{ duration: 0.8 }}
+            className="lg:hidden mb-8"
           >
-            <div className="relative">
-              {/* Large animated logo */}
-              <motion.div
-                className="relative"
-                animate={{ y: [0, -15, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              >
-                {/* Outer glow */}
-                <motion.div
-                  className="absolute -inset-8 bg-gold/10 rounded-full blur-3xl"
-                  animate={{
-                    scale: [1, 1.3, 1],
-                    opacity: [0.2, 0.4, 0.2],
-                  }}
-                  transition={{ duration: 4, repeat: Infinity }}
-                />
-                
-                {/* Magic circle */}
-                <motion.div
-                  className="absolute -inset-6 border border-gold/20 rounded-full"
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                />
-                <motion.div
-                  className="absolute -inset-10 border border-gold/10 rounded-full"
-                  animate={{ rotate: -360 }}
-                  transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-                />
-                
-                {/* Main logo */}
-                <motion.img
-                  src={LOGO_URL}
-                  alt="ATARAXIA - El Loco Sabio"
-                  className="w-80 h-80 object-contain relative z-10"
-                  whileHover={{ scale: 1.05 }}
-                />
-              </motion.div>
-              
-              {/* Floating particles */}
-              {[...Array(6)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  className="absolute w-1 h-1 bg-gold rounded-full"
-                  style={{
-                    left: `${20 + Math.random() * 60}%`,
-                    top: `${20 + Math.random() * 60}%`,
-                  }}
-                  animate={{
-                    y: [0, -30, 0],
-                    opacity: [0, 1, 0],
-                    scale: [0, 1.5, 0],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    delay: i * 0.5,
-                  }}
-                />
-              ))}
-            </div>
+            <img 
+              src={LOGO_URL} 
+              alt="ATARAXIA" 
+              className="w-32 h-32 object-contain"
+            />
           </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <span className="font-mono text-xs tracking-[0.3em] text-gold uppercase">
+              Laboratorio Creativo-Técnico
+            </span>
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="font-syne text-5xl sm:text-6xl lg:text-8xl font-extrabold leading-[1.1] mt-6"
+          >
+            <span className="gradient-text">ATARAXIA</span>
+            <br />
+            <span className="text-[#EDEDED]">TECH LAB</span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="font-outfit text-lg md:text-xl text-[#A1A1AA] max-w-2xl mx-auto leading-relaxed mt-8"
+          >
+            Diseñamos sistemas y experiencias que elevan el desempeño técnico y humano.
+            <span className="text-gold block mt-2 font-syne text-2xl">Precision. Experience. Evolution.</span>
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="flex flex-wrap justify-center gap-4 mt-10"
+          >
+            <Button 
+              className="btn-gold px-8 py-6 text-base font-outfit font-medium flex items-center gap-2"
+              onClick={() => document.getElementById('contacto').scrollIntoView({ behavior: 'smooth' })}
+              data-testid="hero-cta-btn"
+            >
+              Iniciar Proyecto
+              <ArrowRight size={18} />
+            </Button>
+            <Button 
+              variant="outline"
+              className="btn-outline-gold px-8 py-6 text-base font-outfit"
+              onClick={() => document.getElementById('divisiones').scrollIntoView({ behavior: 'smooth' })}
+              data-testid="hero-explore-btn"
+            >
+              Explorar Servicios
+            </Button>
+          </motion.div>
+
+          {/* Floating particles */}
+          <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            {[...Array(12)].map((_, i) => (
+              <motion.div
+                key={i}
+                className="absolute w-1 h-1 bg-gold rounded-full"
+                style={{
+                  left: `${10 + Math.random() * 80}%`,
+                  top: `${10 + Math.random() * 80}%`,
+                }}
+                animate={{
+                  y: [0, -40, 0],
+                  opacity: [0, 0.8, 0],
+                  scale: [0, 1.5, 0],
+                }}
+                transition={{
+                  duration: 4 + Math.random() * 2,
+                  repeat: Infinity,
+                  delay: i * 0.4,
+                }}
+              />
+            ))}
+          </div>
         </div>
 
         {/* Scroll Indicator */}
@@ -621,9 +684,25 @@ const DivisionsSection = () => {
   );
 };
 
-// Cocktail Gallery Section
+// Cocktail Gallery Section - Updated with proper categories
 const CocktailGallery = () => {
-  const [selectedCocktail, setSelectedCocktail] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [activeTab, setActiveTab] = useState("autor");
+
+  const tabs = [
+    { id: "autor", label: "Cócteles de Autor", subtitle: "Concurso Tonatzin" },
+    { id: "curso", label: "Formación", subtitle: "Cielo y Pecados 2020" },
+    { id: "gastro", label: "Gastronomía", subtitle: "Club de Cuisine 2018" }
+  ];
+
+  const getCurrentImages = () => {
+    switch(activeTab) {
+      case "autor": return COCKTAILS_AUTOR;
+      case "curso": return COCKTAILS_CURSO;
+      case "gastro": return GASTRONOMY_IMAGES;
+      default: return COCKTAILS_AUTOR;
+    }
+  };
 
   return (
     <section className="py-24 bg-[#050505] relative overflow-hidden" data-testid="cocktail-gallery">
@@ -641,44 +720,75 @@ const CocktailGallery = () => {
           viewport={{ once: true }}
           className="section-header text-center"
         >
-          <span className="section-label">Creaciones de Autor</span>
+          <span className="section-label">Trayectoria & Creaciones</span>
           <h2 className="font-syne text-4xl sm:text-5xl font-bold text-[#EDEDED]">
-            Arte <span className="gradient-text">Líquido</span>
+            Arte <span className="gradient-text">Culinario</span>
           </h2>
           <p className="font-outfit text-[#A1A1AA] mt-4 max-w-2xl mx-auto">
-            Cada cóctel es una experiencia sensorial única, creada con técnica y pasión.
+            Cada creación es una experiencia sensorial única, resultado de años de formación y pasión.
           </p>
         </motion.div>
 
-        {/* Gallery Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-          {COCKTAIL_GALLERY.map((cocktail, index) => (
-            <motion.div
-              key={cocktail.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="group relative aspect-square rounded-2xl overflow-hidden cursor-pointer"
-              onClick={() => setSelectedCocktail(cocktail)}
-              data-testid={`cocktail-${cocktail.id}`}
+        {/* Tabs */}
+        <div className="flex flex-wrap justify-center gap-4 mb-12">
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`px-6 py-3 rounded-xl font-outfit text-sm transition-all duration-300 ${
+                activeTab === tab.id
+                  ? "bg-gold text-[#050505]"
+                  : "bg-[#121212] text-[#A1A1AA] hover:text-gold border border-[rgba(255,255,255,0.08)]"
+              }`}
+              data-testid={`tab-${tab.id}`}
             >
-              <img
-                src={cocktail.image}
-                alt={cocktail.name}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                <h3 className="font-syne text-sm font-bold text-[#EDEDED]">{cocktail.name}</h3>
-              </div>
-              {/* Gold corner accent */}
-              <div className="absolute top-0 right-0 w-12 h-12 overflow-hidden">
-                <div className="absolute -top-6 -right-6 w-12 h-12 bg-gold/20 rotate-45 group-hover:bg-gold/40 transition-colors" />
-              </div>
-            </motion.div>
+              <span className="block font-semibold">{tab.label}</span>
+              <span className="block text-xs opacity-70">{tab.subtitle}</span>
+            </button>
           ))}
         </div>
+
+        {/* Gallery Grid */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeTab}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className={`grid gap-4 ${
+              activeTab === "gastro" 
+                ? "grid-cols-1 sm:grid-cols-2 max-w-2xl mx-auto" 
+                : "grid-cols-2 sm:grid-cols-3 lg:grid-cols-5"
+            }`}
+          >
+            {getCurrentImages().map((item, index) => (
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: index * 0.1 }}
+                className="group relative aspect-square rounded-2xl overflow-hidden cursor-pointer"
+                onClick={() => setSelectedImage(item)}
+                data-testid={`gallery-item-${activeTab}-${item.id}`}
+              >
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                  <h3 className="font-syne text-sm font-bold text-[#EDEDED]">{item.name}</h3>
+                </div>
+                {/* Gold corner accent */}
+                <div className="absolute top-0 right-0 w-12 h-12 overflow-hidden">
+                  <div className="absolute -top-6 -right-6 w-12 h-12 bg-gold/20 rotate-45 group-hover:bg-gold/40 transition-colors" />
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </AnimatePresence>
 
         {/* View More CTA */}
         <motion.div
@@ -701,13 +811,13 @@ const CocktailGallery = () => {
 
       {/* Lightbox Modal */}
       <AnimatePresence>
-        {selectedCocktail && (
+        {selectedImage && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90"
-            onClick={() => setSelectedCocktail(null)}
+            onClick={() => setSelectedImage(null)}
           >
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
@@ -717,19 +827,24 @@ const CocktailGallery = () => {
               onClick={(e) => e.stopPropagation()}
             >
               <button
-                onClick={() => setSelectedCocktail(null)}
+                onClick={() => setSelectedImage(null)}
                 className="absolute -top-12 right-0 text-white hover:text-gold transition-colors"
               >
                 <X size={32} />
               </button>
               <img
-                src={selectedCocktail.image}
-                alt={selectedCocktail.name}
+                src={selectedImage.image}
+                alt={selectedImage.name}
                 className="w-full rounded-2xl"
               />
               <div className="mt-4 text-center">
-                <h3 className="font-syne text-2xl font-bold text-[#EDEDED]">{selectedCocktail.name}</h3>
-                <p className="font-outfit text-[#A1A1AA] mt-2">{selectedCocktail.description}</p>
+                <h3 className="font-syne text-2xl font-bold text-[#EDEDED]">{selectedImage.name}</h3>
+                <p className="font-outfit text-[#A1A1AA] mt-2">{selectedImage.description}</p>
+                {selectedImage.event && (
+                  <span className="inline-block mt-2 px-3 py-1 bg-gold/20 text-gold rounded-full text-sm font-mono">
+                    {selectedImage.event}
+                  </span>
+                )}
               </div>
             </motion.div>
           </motion.div>
@@ -926,9 +1041,9 @@ const AboutSection = () => {
           >
             <div className="relative rounded-2xl overflow-hidden gold-glow">
               <img
-                src={ASSETS.founder}
-                alt="Brian Marroquín - Fundador"
-                className="w-full h-[500px] object-cover"
+                src={BRIAN_IMAGES.profile}
+                alt="Brian Marroquín Ambriz - Fundador"
+                className="w-full h-[500px] object-cover object-top"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent" />
             </div>
@@ -946,6 +1061,15 @@ const AboutSection = () => {
                 <Instagram size={16} />
                 <span className="font-outfit text-sm">@Marroquin7</span>
               </a>
+            </div>
+            
+            {/* Second image - action shot */}
+            <div className="absolute -top-4 -left-4 w-32 h-32 rounded-xl overflow-hidden border-2 border-gold/30 hidden lg:block">
+              <img
+                src={BRIAN_IMAGES.action}
+                alt="Brian en acción"
+                className="w-full h-full object-cover"
+              />
             </div>
           </motion.div>
 
@@ -971,9 +1095,9 @@ const AboutSection = () => {
             </p>
 
             <p className="font-outfit text-[#A1A1AA] leading-relaxed">
-              Nuestro enfoque combina <span className="text-gold">orden + creatividad + experiencia + impacto humano</span>. 
-              Ya sea optimizando sistemas, diseñando experiencias sensoriales o transfiriendo conocimiento real, 
-              cada proyecto lleva la firma de la precisión y la innovación.
+              Con formación en <span className="text-gold">Gastronomía</span> (Club de Cuisine, 2018) y 
+              <span className="text-gold"> Mixología</span> (Colegio de Bartenders con Mane Maldonado, 2020), 
+              combinamos técnica culinaria con creatividad sensorial para crear experiencias únicas.
             </p>
 
             <div className="border-l-2 border-gold pl-6">
@@ -987,7 +1111,29 @@ const AboutSection = () => {
             <div className="flex flex-wrap gap-4">
               <div className="flex items-center gap-3 px-4 py-2 bg-[#121212] rounded-lg">
                 <Award className="text-gold" size={20} />
-                <span className="font-outfit text-sm">1er Lugar Mixología - Restaurante Tonatzin</span>
+                <span className="font-outfit text-sm">1er Lugar - Concurso Mixología Tonatzin</span>
+              </div>
+              <div className="flex items-center gap-3 px-4 py-2 bg-[#121212] rounded-lg">
+                <GraduationCap className="text-gold" size={20} />
+                <span className="font-outfit text-sm">Club de Cuisine 2018</span>
+              </div>
+              <div className="flex items-center gap-3 px-4 py-2 bg-[#121212] rounded-lg">
+                <FlaskConical className="text-gold" size={20} />
+                <span className="font-outfit text-sm">Colegio de Bartenders 2020</span>
+              </div>
+            </div>
+            
+            {/* Tonatzin Group Photo */}
+            <div className="relative rounded-xl overflow-hidden mt-6">
+              <img
+                src={BRIAN_IMAGES.tonatzin_group}
+                alt="Concurso de Mixología - Restaurante Tonatzin"
+                className="w-full h-48 object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050505] to-transparent" />
+              <div className="absolute bottom-4 left-4">
+                <p className="font-mono text-xs text-gold">CONCURSO DE MIXOLOGÍA</p>
+                <p className="font-outfit text-sm text-[#EDEDED]">Restaurante Tonatzin - 1er Lugar</p>
               </div>
             </div>
           </motion.div>
