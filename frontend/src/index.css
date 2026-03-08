@@ -73,6 +73,30 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--gold-light);
 }
 
+.bg-gold\/10 {
+  background-color: rgba(212, 175, 55, 0.1);
+}
+
+.bg-gold\/20 {
+  background-color: rgba(212, 175, 55, 0.2);
+}
+
+.bg-gold\/40 {
+  background-color: rgba(212, 175, 55, 0.4);
+}
+
+.border-gold\/10 {
+  border-color: rgba(212, 175, 55, 0.1);
+}
+
+.border-gold\/20 {
+  border-color: rgba(212, 175, 55, 0.2);
+}
+
+.border-gold\/30 {
+  border-color: rgba(212, 175, 55, 0.3);
+}
+
 .bg-gold {
   background-color: var(--gold);
 }
