@@ -19,7 +19,8 @@ import {
   Award,
   Users,
   Briefcase,
-  Send
+  Send,
+  Instagram
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -638,11 +639,20 @@ const AboutSection = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent" />
             </div>
-            {/* Floating Badge */}
+            /* Floating Badge */}
             <div className="absolute -bottom-6 -right-6 glass p-6 rounded-xl gold-glow">
               <div className="font-mono text-xs text-gold mb-1">FUNDADOR</div>
-              <div className="font-syne text-xl font-bold">Brian Marroquín</div>
+              <div className="font-syne text-xl font-bold">Brian Marroquín Ambriz</div>
               <div className="font-outfit text-sm text-[#A1A1AA]">El Loco Sabio</div>
+              <a 
+                href="https://instagram.com/Marroquin7" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 mt-3 text-gold hover:text-gold-light transition-colors"
+              >
+                <Instagram size={16} />
+                <span className="font-outfit text-sm">@Marroquin7</span>
+              </a>
             </div>
           </motion.div>
 
@@ -759,7 +769,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <p className="font-outfit text-sm text-[#52525B]">Email</p>
-                  <p className="font-outfit text-[#EDEDED]">contacto@ataraxia.tech</p>
+                  <p className="font-outfit text-[#EDEDED]">contacto@ataraxiatechlab.com</p>
                 </div>
               </div>
 
@@ -768,8 +778,8 @@ const ContactSection = () => {
                   <Phone className="text-gold" size={24} />
                 </div>
                 <div>
-                  <p className="font-outfit text-sm text-[#52525B]">Teléfono</p>
-                  <p className="font-outfit text-[#EDEDED]">+52 (555) 123-4567</p>
+                  <p className="font-outfit text-sm text-[#52525B]">WhatsApp</p>
+                  <p className="font-outfit text-[#EDEDED]">+52 459 116 2796</p>
                 </div>
               </div>
 
@@ -779,7 +789,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <p className="font-outfit text-sm text-[#52525B]">Ubicación</p>
-                  <p className="font-outfit text-[#EDEDED]">Ciudad de México, México</p>
+                  <p className="font-outfit text-[#EDEDED]">Tacámbaro y Morelia, Michoacán</p>
                 </div>
               </div>
             </div>
@@ -920,8 +930,19 @@ const Footer = () => {
 
           {/* Links */}
           <div>
-            <h4 className="font-syne font-bold text-[#EDEDED] mb-4">Enlaces</h4>
+            <h4 className="font-syne font-bold text-[#EDEDED] mb-4">Síguenos</h4>
             <ul className="space-y-2">
+              <li>
+                <a 
+                  href="https://instagram.com/Marroquin7" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="footer-link font-outfit text-sm flex items-center gap-2"
+                >
+                  <Instagram size={16} />
+                  @Marroquin7
+                </a>
+              </li>
               <li><a href="#portafolio" className="footer-link font-outfit text-sm">Portafolio</a></li>
               <li><a href="#about" className="footer-link font-outfit text-sm">Nosotros</a></li>
               <li><a href="#contacto" className="footer-link font-outfit text-sm">Contacto</a></li>
@@ -945,8 +966,8 @@ const Footer = () => {
 
 // WhatsApp Button
 const WhatsAppButton = () => {
-  const whatsappNumber = "525551234567";
-  const message = "Hola, me interesa conocer más sobre los servicios de ATARAXIA TECH LAB.";
+  const whatsappNumber = "524591162796";
+  const message = "Hola Brian, me interesa conocer más sobre los servicios de ATARAXIA TECH LAB.";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
   return (
