@@ -574,7 +574,7 @@ const PortfolioSection = () => {
 
         {/* Portfolio Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <AnimatePresence mode="wait">
+          <AnimatePresence>
             {filteredItems.map((item, index) => (
               <motion.div
                 key={item.id}
