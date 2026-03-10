@@ -20,7 +20,8 @@ import {
   Users,
   Briefcase,
   Send,
-  Instagram
+  Instagram,
+  Facebook
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -1201,27 +1202,73 @@ const ContactSection = () => {
               </p>
             </div>
 
+            {/* Contact Methods */}
             <div className="space-y-6">
-              <div className="flex items-center gap-4">
-                <div className="service-icon">
-                  <Mail className="text-gold" size={24} />
+              {/* WhatsApp Personal */}
+              <a 
+                href="https://wa.me/5214591162796"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 group"
+              >
+                <div className="service-icon group-hover:bg-gold group-hover:border-gold transition-all">
+                  <Phone className="text-gold group-hover:text-[#050505]" size={24} />
                 </div>
                 <div>
-                  <p className="font-outfit text-sm text-[#52525B]">Email</p>
-                  <p className="font-outfit text-[#EDEDED]">contacto@ataraxiatechlab.com</p>
+                  <p className="font-outfit text-sm text-[#52525B]">WhatsApp Personal</p>
+                  <p className="font-outfit text-[#EDEDED] group-hover:text-gold transition-colors">+52 1 459 116 2796</p>
                 </div>
-              </div>
+              </a>
 
-              <div className="flex items-center gap-4">
-                <div className="service-icon">
-                  <Phone className="text-gold" size={24} />
+              {/* WhatsApp Cursos */}
+              <a 
+                href="https://wa.me/message/UHTR4XOK2P7PJ1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 group"
+              >
+                <div className="service-icon group-hover:bg-gold group-hover:border-gold transition-all">
+                  <GraduationCap className="text-gold group-hover:text-[#050505]" size={24} />
                 </div>
                 <div>
-                  <p className="font-outfit text-sm text-[#52525B]">WhatsApp</p>
-                  <p className="font-outfit text-[#EDEDED]">+52 459 116 2796</p>
+                  <p className="font-outfit text-sm text-[#52525B]">WhatsApp Cursos (Academy)</p>
+                  <p className="font-outfit text-[#EDEDED] group-hover:text-gold transition-colors">Información de cursos</p>
                 </div>
-              </div>
+              </a>
 
+              {/* Facebook Personal */}
+              <a 
+                href="https://www.facebook.com/share/19rq5KhMNP/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 group"
+              >
+                <div className="service-icon group-hover:bg-gold group-hover:border-gold transition-all">
+                  <Facebook className="text-gold group-hover:text-[#050505]" size={24} />
+                </div>
+                <div>
+                  <p className="font-outfit text-sm text-[#52525B]">Facebook Personal</p>
+                  <p className="font-outfit text-[#EDEDED] group-hover:text-gold transition-colors">Brian Marroquín Ambriz</p>
+                </div>
+              </a>
+
+              {/* Facebook Cursos */}
+              <a 
+                href="https://www.facebook.com/share/1Hh4ozprLr/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 group"
+              >
+                <div className="service-icon group-hover:bg-gold group-hover:border-gold transition-all">
+                  <FlaskConical className="text-gold group-hover:text-[#050505]" size={24} />
+                </div>
+                <div>
+                  <p className="font-outfit text-sm text-[#52525B]">Facebook Cursos</p>
+                  <p className="font-outfit text-[#EDEDED] group-hover:text-gold transition-colors">ATARAXIA Academy</p>
+                </div>
+              </a>
+
+              {/* Ubicación */}
               <div className="flex items-center gap-4">
                 <div className="service-icon">
                   <MapPin className="text-gold" size={24} />
@@ -1231,6 +1278,34 @@ const ContactSection = () => {
                   <p className="font-outfit text-[#EDEDED]">Tacámbaro y Morelia, Michoacán</p>
                 </div>
               </div>
+            </div>
+
+            {/* Social Links Row */}
+            <div className="flex gap-4 pt-4">
+              <a
+                href="https://instagram.com/Marroquin7"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 rounded-full bg-[#121212] border border-[rgba(255,255,255,0.08)] flex items-center justify-center hover:border-gold hover:bg-gold/10 transition-all"
+              >
+                <Instagram size={20} className="text-gold" />
+              </a>
+              <a
+                href="https://www.facebook.com/share/19rq5KhMNP/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 rounded-full bg-[#121212] border border-[rgba(255,255,255,0.08)] flex items-center justify-center hover:border-gold hover:bg-gold/10 transition-all"
+              >
+                <Facebook size={20} className="text-gold" />
+              </a>
+              <a
+                href="https://wa.me/5214591162796"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 rounded-full bg-[#121212] border border-[rgba(255,255,255,0.08)] flex items-center justify-center hover:border-gold hover:bg-gold/10 transition-all"
+              >
+                <MessageCircle size={20} className="text-gold" />
+              </a>
             </div>
           </motion.div>
 
@@ -1355,6 +1430,33 @@ const Footer = () => {
               Diseñamos sistemas y experiencias que elevan el desempeño técnico y humano. 
               Precision. Experience. Evolution.
             </p>
+            {/* Social Links */}
+            <div className="flex gap-3 mt-6">
+              <a
+                href="https://instagram.com/Marroquin7"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-[#121212] border border-[rgba(255,255,255,0.08)] flex items-center justify-center hover:border-gold hover:bg-gold/10 transition-all"
+              >
+                <Instagram size={18} className="text-gold" />
+              </a>
+              <a
+                href="https://www.facebook.com/share/19rq5KhMNP/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-[#121212] border border-[rgba(255,255,255,0.08)] flex items-center justify-center hover:border-gold hover:bg-gold/10 transition-all"
+              >
+                <Facebook size={18} className="text-gold" />
+              </a>
+              <a
+                href="https://wa.me/5214591162796"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-[#121212] border border-[rgba(255,255,255,0.08)] flex items-center justify-center hover:border-gold hover:bg-gold/10 transition-all"
+              >
+                <MessageCircle size={18} className="text-gold" />
+              </a>
+            </div>
           </div>
 
           {/* Divisions */}
@@ -1367,24 +1469,43 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Links */}
+          {/* Contacto */}
           <div>
-            <h4 className="font-syne font-bold text-[#EDEDED] mb-4">Síguenos</h4>
+            <h4 className="font-syne font-bold text-[#EDEDED] mb-4">Contacto</h4>
             <ul className="space-y-2">
               <li>
                 <a 
-                  href="https://instagram.com/Marroquin7" 
-                  target="_blank" 
+                  href="https://wa.me/5214591162796" 
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="footer-link font-outfit text-sm flex items-center gap-2"
                 >
-                  <Instagram size={16} />
-                  @Marroquin7
+                  <Phone size={14} />
+                  WhatsApp Personal
                 </a>
               </li>
-              <li><a href="#portafolio" className="footer-link font-outfit text-sm">Portafolio</a></li>
-              <li><a href="#about" className="footer-link font-outfit text-sm">Nosotros</a></li>
-              <li><a href="#contacto" className="footer-link font-outfit text-sm">Contacto</a></li>
+              <li>
+                <a 
+                  href="https://wa.me/message/UHTR4XOK2P7PJ1" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="footer-link font-outfit text-sm flex items-center gap-2"
+                >
+                  <GraduationCap size={14} />
+                  WhatsApp Cursos
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="https://www.facebook.com/share/1Hh4ozprLr/" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="footer-link font-outfit text-sm flex items-center gap-2"
+                >
+                  <Facebook size={14} />
+                  Facebook Cursos
+                </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -1395,7 +1516,7 @@ const Footer = () => {
             © {new Date().getFullYear()} ATARAXIA TECH LAB. Todos los derechos reservados.
           </p>
           <p className="font-mono text-xs text-[#52525B]">
-            Engineering Experiences
+            Tacámbaro y Morelia, Michoacán
           </p>
         </div>
       </div>
@@ -1405,9 +1526,7 @@ const Footer = () => {
 
 // WhatsApp Button
 const WhatsAppButton = () => {
-  const whatsappNumber = "524591162796";
-  const message = "Hola Brian, me interesa conocer más sobre los servicios de ATARAXIA TECH LAB.";
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+  const whatsappUrl = "https://wa.me/5214591162796?text=Hola%20Brian,%20me%20interesa%20conocer%20más%20sobre%20los%20servicios%20de%20ATARAXIA%20TECH%20LAB.";
 
   return (
     <a
